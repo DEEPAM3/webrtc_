@@ -27,8 +27,8 @@ const Controls = ({ roomId, webrtcService, toggleChat, isChatOpen }) => {
   const leaveRoom = () => {
     webrtcService.closeAllConnections();
     socket.emit('leave-room', roomId);
-    // window.location.reload();
     navigate('/video-room');
+    window.location.reload();
   };
 
   return (
