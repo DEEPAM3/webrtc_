@@ -4,7 +4,7 @@ Here’s a proposed `README.md` tailored to your React WebRTC client. Feel free 
 # React WebRTC Communication App
 
 A customizable React client for real‑time video and voice calls, backed by Socket.IO and WebRTC. Includes user authentication, chat, and room management.
-
+````
 ---
 
 ## 📋 Table of Contents
@@ -60,8 +60,8 @@ A customizable React client for real‑time video and voice calls, backed by Soc
 git clone https://github.com/<your‑username>/<repo‑name>.git
 cd <repo‑name>/client
 npm install
-
-
+````
+---
 
 ### Environment Variables
 
