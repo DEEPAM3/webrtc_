@@ -8,7 +8,7 @@ This repo contains:
 
 - **client/** – React front‑end  
 - **server/** – Node.js/Express signaling & chat back‑end  
-
+````
 ---
 
 ## 📋 Table of Contents
