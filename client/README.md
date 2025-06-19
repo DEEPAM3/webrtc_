@@ -60,8 +60,8 @@ A customizable React client for real‑time video and voice calls, backed by Soc
 git clone https://github.com/<your‑username>/<repo‑name>.git
 cd <repo‑name>/client
 npm install
-````
-````
+
+
 
 ### Environment Variables
 
