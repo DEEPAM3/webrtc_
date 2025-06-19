@@ -149,7 +149,6 @@ webrtc_/
 │  └─ app.js                # Express app setup
 │
 ├─ .gitignore
-├─ LICENSE
 └─ README.md                # ← You are here
 ```
 
