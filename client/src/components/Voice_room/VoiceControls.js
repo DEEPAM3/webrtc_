@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useSocket } from '../../context/SocketContext';
+import { useNavigate } from 'react-router-dom';
 
 const VoiceControls = ({ roomId, webrtcService, toggleChat, isChatOpen }) => {
   const [isMuted, setIsMuted] = useState(false);
   const socket = useSocket();
+  const navigate = useNavigate();
 
   const toggleAudio = () => {
     if (webrtcService.localStream) {
@@ -16,7 +18,7 @@ const VoiceControls = ({ roomId, webrtcService, toggleChat, isChatOpen }) => {
   const leaveRoom = () => {
     webrtcService.closeAllConnections();
     socket.emit('leave-room', roomId);
-    window.location.reload();
+    navigate('/video_or_voice');
   };
 
   return (
