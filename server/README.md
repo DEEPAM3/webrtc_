@@ -123,19 +123,3 @@ server/
 5. **Leave/Disconnect**: `disconnect` event notifies remaining peers via `user-disconnected`
 
 ---
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/YourFeature`
-3. Commit your changes: `git commit -m "feat: add new feature"`
-4. Push to the branch: `git push origin feature/YourFeature`
-5. Open a Pull Request
-
-Please follow [Conventional Commits](https://www.conventionalcommits.org/) guidelines.
-
----
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
