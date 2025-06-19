@@ -1,47 +1,141 @@
-# Server
+# Node.js WebRTC Signaling & Chat Server
 
-This directory contains the backend server for the RTC-1 application.
+A backend server providing signaling and real-time chat capabilities for a React WebRTC communication application. Built with Node.js, Express, and Socket.IO.
 
-## Table of Contents
+---
 
-- [Server](#server)
-  - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-  - [Setup](#setup)
-  - [Project Structure](#project-structure)
-  - [Key Components](#key-components)
+## 📋 Table of Contents
 
-## Overview
+1. [Features](#-features)
+2. [Tech Stack](#-tech-stack)
+3. [Prerequisites](#-prerequisites)
+4. [Installation & Setup](#-installation--setup)
 
-The server is built with Node.js and Express, providing API endpoints for user authentication, room management, and real-time communication functionalities. It interacts with a MongoDB database to store application data.
+   * [Clone & Install](#clone--install)
+   * [Environment Variables](#environment-variables)
+   * [Running the Server](#running-the-server)
+5. [Available Scripts](#-available-scripts)
+6. [Project Structure](#-project-structure)
+7. [Signaling Flow](#-signaling-flow)
+8. [Contributing](#-contributing)
+9. [License](#-license)
 
-## Setup
+---
 
-To set up and run the server, follow these steps:
+## 🚀 Features
 
-1.  **Navigate to the server directory:**
-    ```bash
-    cd server
-    ```
+* **WebRTC Signaling**: Exchange offer, answer, and ICE candidates via Socket.IO
+* **Room Management**: Create and join rooms with unique IDs
+* **Real-Time Chat**: In-room text messaging supporting multiple users
+* **User Authentication**: JSON Web Tokens (JWT) for secure signup and login flows (*optional*)
+* **CORS & Security**: Configurable CORS, helmet for basic HTTP hardening
+* **Environment Config**: `.env` support for flexible configuration
 
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
+---
 
-3.  **Create a `.env` file:**
-    Create a `.env` file in the `server` directory and add your environment variables. A typical `.env` file might look like this:
-    ```
-    PORT=5000
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET=your_jwt_secret
-    ```
-    Replace `your_mongodb_connection_string` with your MongoDB URI (e.g., `mongodb://localhost:27017/rtc_db` or a cloud-based URI) and `your_jwt_secret` with a strong, random string.
+## 💻 Tech Stack
 
-4.  **Run the server:**
-    ```bash
-    npm start
-    ```
-    The server should now be running, typically on `http://localhost:5000` (or the port specified in your `.env` file).
+* **Runtime**: Node.js (v16+)
+* **Framework**: Express
+* **Real-time**: Socket.IO
+* **Authentication**: JSON Web Token (JWT)
+* **Security**: Helmet, CORS
+* **Utilities**: dotenv
 
-## Project Structure
+---
+
+## 🔧 Prerequisites
+
+* Node.js v16 or higher
+* npm (v8+) or yarn
+* (Optional) MongoDB or another database if user persistence is enabled
+
+---
+
+## ⚙️ Installation & Setup
+
+### Clone & Install
+
+```bash
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>/server
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file in the `/server` directory, based on `.env.example`:
+
+```ini
+# Server port\ nPORT=5000
+# Allowed client origin for CORS
+CLIENT_ORIGIN=http://localhost:3000
+# JWT secret key (if using authentication)
+JWT_SECRET=your_jwt_secret_here
+# (Optional) MongoDB connection string
+MONGODB_URI=mongodb://localhost:27017/webrtc-chat
+```
+
+### Running the Server
+
+```bash
+npm start       # Starts production server
+npm run dev     # Starts development server with nodemon
+```
+
+By default, the server listens on the port defined in `PORT` and accepts Socket.IO connections from the origin defined in `CLIENT_ORIGIN`.
+
+---
+
+## 🛠️ Available Scripts
+
+* `npm start` – Run the server in production mode
+* `npm run dev` – Run the server in development mode (auto-restarts on changes)
+* `npm test` – Launch unit tests (if configured)
+
+---
+
+## 📂 Project Structure
+
+```
+server/
+├─ src/
+│  ├─ controllers/       # Express controllers for REST endpoints
+│  ├─ middlewares/       # Auth, error handling, CORS
+│  ├─ routes/            # HTTP routes (e.g., auth, health)
+│  ├─ sockets/           # Socket.IO event handlers and logic
+│  ├─ utils/             # Helper functions (e.g., token utils)
+│  ├─ app.js             # Express app setup
+│  └─ server.js          # HTTP & Socket.IO server initialization
+├─ .env.example          # Example environment variables
+├─ package.json
+└─ README.md             # This file
+```
+
+---
+
+## 🔄 Signaling Flow
+
+1. **Join Room**: Client emits `join-room` with room ID
+2. **Peer Discovery**: Server broadcasts `user-connected` to existing participants
+3. **Offer/Answer Exchange**: Clients emit `webrtc-offer` and `webrtc-answer`; server relays to peers
+4. **ICE Candidate Exchange**: Clients emit `webrtc-candidate`; server relays ice candidates
+5. **Leave/Disconnect**: `disconnect` event notifies remaining peers via `user-disconnected`
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/YourFeature`
+3. Commit your changes: `git commit -m "feat: add new feature"`
+4. Push to the branch: `git push origin feature/YourFeature`
+5. Open a Pull Request
+
+Please follow [Conventional Commits](https://www.conventionalcommits.org/) guidelines.
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
