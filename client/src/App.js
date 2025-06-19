@@ -26,10 +26,10 @@ function App() {
           <Route path='/login' element={<PublicRoute><Login/></PublicRoute>}/>
           <Route path='/signup' element={<PublicRoute><Signup/></PublicRoute>}/>
           <Route path='/video_or_voice' element={
-            
+            <>
               <Navbar onSettingsClick={() => setIsSettingsOpen(true)} />
               <Video_or_Voice/>
-            
+            </>
             }/>
           <Route path='/video-room' element={
             <ProtectedRoute>
