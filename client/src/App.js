@@ -8,7 +8,7 @@ import VideoOrVoice from './components/Video_or_Voice/Video_or_Voice';
 import Home from './components/Dashboard/Home';
 import ProtectedRoute from './components/Routes_Protector/ProtectedRoute';
 import PublicRoute from './components/Routes_Protector/PublicRoute';
-import Navbar from './components/Navbars/Navbar';
+import Navbar from './components/Navbars/TransparentNavbar';
 import Settings from './components/Navbars/Settings';
 import NotFound from './components/z_others/NotFound';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
