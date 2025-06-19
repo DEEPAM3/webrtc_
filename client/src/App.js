@@ -29,7 +29,7 @@ function App() {
               <ProtectedRoute>
                 <Navbar onSettingsClick={() => setIsSettingsOpen(true)} />
                 <VideoOrVoice/>
-              <ProtectedRoute/>
+              </ProtectedRoute>
             }/>
           <Route path='/video-room' element={
             <ProtectedRoute>
