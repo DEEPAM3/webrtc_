@@ -4,7 +4,7 @@ import VoiceRoom from './components/Voice_room/VoiceRoom';
 import { SocketProvider } from './context/SocketContext';
 import Login from './components/Dashboard/Login';
 import Signup from './components/Dashboard/Signup';
-import Video_or_Voice from './components/Video_or_Voice/Video_or_Voice';
+import VideoOrVoice from './components/Video_or_Voice/Video_or_Voice';
 import Home from './components/Dashboard/Home';
 import ProtectedRoute from './components/Routes_Protector/ProtectedRoute';
 import PublicRoute from './components/Routes_Protector/PublicRoute';
@@ -28,7 +28,7 @@ function App() {
           <Route path='/video_or_voice' element={
             <>
               <Navbar onSettingsClick={() => setIsSettingsOpen(true)} />
-              <Video_or_Voice/>
+              <VideoOrVoice/>
             </>
             }/>
           <Route path='/video-room' element={
