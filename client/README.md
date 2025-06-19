@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+Here’s a proposed `README.md` tailored to your React WebRTC client. Feel free to adjust any section (e.g. add real demo links, screenshots, or change naming) as needed:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+````markdown
+# React WebRTC Communication App
 
-## Available Scripts
+A customizable React client for real‑time video and voice calls, backed by Socket.IO and WebRTC. Includes user authentication, chat, and room management.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📋 Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. [Features](#-features)  
+2. [Tech Stack](#-tech-stack)  
+3. [Prerequisites](#-prerequisites)  
+4. [Getting Started](#-getting-started)  
+   - [Clone & Install](#clone--install)  
+   - [Environment Variables](#environment-variables)  
+   - [Running the App](#running-the-app)  
+5. [Available Scripts](#-available-scripts)  
+6. [Folder Structure](#-folder-structure)  
+7. [Contributing](#-contributing)  
+8. [License](#-license)  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **User Authentication**: Signup & login flows  
+- **Dashboard**: Clean UI for navigating between voice & video calls  
+- **WebRTC Integration**: Peer‑to‑peer audio/video streaming  
+- **Socket.IO**: Real‑time signaling and in‑room chat  
+- **Room Management**: Create/join rooms via unique IDs  
+- **Screen Sharing**: Share your screen in video rooms  
+- **Responsive Design**: Works on desktop and mobile  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 💻 Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Frontend**: React (v18), React Router (v7), Context API  
+- **Communication**: WebRTC, Socket.IO client  
+- **HTTP**: Axios  
+- **Build Tools**: Create React App  
+- **Styling**: CSS Modules & global styles  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🔧 Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Node.js v16+ & npm  
+- A running backend server (e.g. your Socket.IO/WebRTC signaling server) on port 5000 by default  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📦 Getting Started
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Clone & Install
 
-## Learn More
+```bash
+git clone https://github.com/<your‑username>/<repo‑name>.git
+cd <repo‑name>/client
+npm install
+````
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Environment Variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a `.env` in `/client` with:
 
-### Code Splitting
+```dotenv
+# Client port (default 3000)
+PORT=3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# URL of your signaling server
+REACT_APP_SOCKET_SERVER_URL=http://localhost:5000
 
-### Analyzing the Bundle Size
+# Host for React app
+HOST=localhost
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Running the App
 
-### Making a Progressive Web App
+```bash
+npm run dev
+# or
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Open [http://localhost:3000](http://localhost:3000) in your browser. The client will connect to your Socket.IO server on the URL set in `REACT_APP_SOCKET_SERVER_URL`.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## ⚙️ Available Scripts
 
-### Deployment
+In the `/client` folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* `npm start` (alias `npm run dev`): Launch development server
+* `npm run build`: Bundle app for production
+* `npm test`: Run unit tests
+* `npm run eject`: Eject Create React App config
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📂 Folder Structure
+
+```
+client/
+├─ public/               # Static assets (favicon, index.html)
+├─ src/
+│  ├─ components/        # All React components
+│  │  ├─ Dashboard/      # Login, Signup, Home
+│  │  ├─ Navbars/        # Navbar variants
+│  │  ├─ Video_room/     # Video call UI & controls
+│  │  ├─ Voice_room/     # Voice call UI & controls
+│  │  └─ z_others/       # Chat, 404, etc.
+│  ├─ context/           # React Context (e.g. SocketContext)
+│  ├─ services/          # WebRTC & API helper modules
+│  ├─ styles.css         # Global styles
+│  ├─ App.js             # Root component & routing
+│  └─ index.js           # Entry point
+├─ .env                  # Environment variables
+├─ package.json
+└─ README.md             # <- YOU ARE HERE
+```
+
+---
