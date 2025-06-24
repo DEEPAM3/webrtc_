@@ -1,0 +1,57 @@
+.video-or-voice-container
+{
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000000;
+    overflow: hidden;
+}
+
+.video-btn
+{
+    width: 52vh;
+    font-size: 3vh;
+    height: 8vh;
+    margin-top: 14vh;
+}
+
+.voice-btn
+{
+    width: 52vh;
+    font-size: 3vh;
+    height: 8vh;
+    margin-top: 25vh;
+}
+
+.video-bg{
+    height: 100%;
+    width: 50%;
+    padding: 13%;
+    background-image: url('./video_cal_bg.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.voice-bg{
+    height: 100%;
+    width: 50%;
+    padding: 13%;
+    background-image: url('./voice_cal_bg.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.title
+{
+    font-size: 7.5vh;
+    font-weight: bold;
+    color: white;
+}
+
+.subtitle
+{
+    font-size: 4vh;
+    color: white;
+    margin-left: 3vh;
+}
